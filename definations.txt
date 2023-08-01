@@ -1,0 +1,28 @@
+// ^ -> means starts only with
+//  $ -> ends only with
+//  | -> or
+//  () -> we dont need to give the extension as it will detect automatically
+
+//  /* -> slash followed by anything will default to this route
+// without providing res.status(404) it will send back 200 status code because we are providing our own 404.html page and it finds in the directory successfully so it will give 200. If we want to get a actual 404 as well as display our own 404.html we have to add res.status(404) explicitly
+
+// In oler versions in express js app.use() doesnot support Regex but now in the newer versions it supported Regex.
+
+// app.use() only use for middleware it accept regex and app.all() use for routing and it will apply to all http methods at once
+
+//Acess Token : isuued at Authorization client uses for API Access until expires Verified with Middleware New token issued at Refresh Token.
+
+//RefreshToken : isuued at Authorization client uses to request new Access Token verified with endpoint & database Must be allowed to expire or logout.
+
+1:node
+2:require('crypto').randomBytes(64).toString("hex")
+This would give us a random crypto bytes string we can use as a ACCESS_TOKEN_SECRET
+
+If we send the refreshToken along with AccessToken as a json it will be a dilema so we can set the cookie as http only so that it is not available to javascript
+
+///////////////////////////////////////////////
+Differences between authentication and Authorization
+
+Authentication :- Authentication is the process of verifying who someone is.
+&
+Authorization :- Authorization is the process of verifying what resources a user has access to.
